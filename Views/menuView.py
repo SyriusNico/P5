@@ -7,22 +7,28 @@ class MenuView:
 
 	def __init__(self):
 
-		self.title = 'PUR BEURRE'
-		self.one = '1.Quel aliment souhaitez_vous remplacer ?'
-		self.two = '2.Retrouver mes aliments substitués.'
-		self.display()
+		self.screen()
 
-	@property
-	def __choice(self):
-		return self.__choice
-	
+	def screen(self):
+		print(" __________________________________________________")
+		print("|                                                  |")
+		print("|           BIENVENUE SUR PUR BEURRE               |")
+		print("|                   ****                           |")
+		print("|                                                  |")
+		print("|                 * MENU *                         |")
+		print("|                                                  |")
+		print("|  1. Aliment à remplacer                          |")
+		print("|                                                  |")
+		print("|  2. Retrouver mes aliments substitués            |")
+		print("|                                                  |")
+		print("|__________________________________________________|")
 
 	def display(self):
 
-		print("\n", self.title,"\n")
-		print(self.one)
-		print(self.two)
-		print("\nChoisissez une option :")
+		# print("\n", self.title,"\n")
+		# print(self.one)
+		# print(self.two)
+		# print("\nChoisissez une option :")
 		choose = int(input())
 		if choose == 1:
 			number = 1
@@ -38,3 +44,9 @@ class MenuView:
 		# if choose != 1 or choose != 2:
 		# 	print("\nVous devez saisir le chiffre associé à la proposition")
 		# 	print("En plus {} n'est pas dans la liste.".format(choose))
+	def printTitle(self):
+		print(self.title)
+
+	def printOption(self):
+		print(self.one)
+		print(self.two)

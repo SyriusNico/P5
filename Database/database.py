@@ -2,7 +2,7 @@
 import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
 import mysql.connector
-import Config.config as cf
+import Config.settings as s
 
 """
 
@@ -13,7 +13,7 @@ class Database():
 
 	def __init__(self):
 
-		self._cnx = mysql.connector.connect(**cf.config)
+		self._cnx = mysql.connector.connect(**s.SETTINGS)
 		self._cursor = self.cnx.cursor(buffered=True)
 	
 	@property

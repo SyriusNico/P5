@@ -10,11 +10,27 @@ class Product(c.Database):
 
 	def __init__(self, **product):
 		super().__init__()
+		self.id = None
 		self.product_name = product.get('product_name')
 		self.code = product.get('code') 
 		self.nutrition_grade = product.get('nutrition_grade_fr')
 		self.stores = product.get('stores')
 		self.category_id = ''
+
+	def set_id(self, _id):
+		self.id = _id
+
+	def set_name(self, name):
+		self.product_name = name
+
+	def set_code(self, code):
+		self.code = code
+
+	def set_nutrition_grade(self, grade):
+		self.nutrition_grade = grade
+
+	def set_stores(self, stores):
+		self.stores = stores
 
 
 	def create(self):
@@ -47,18 +63,36 @@ class Product(c.Database):
 		# fetchall a faire dans le model
 		datas = self.cursor.fetchall()
 		products = []
-		for data in datas:
-			products.append(data)
+
+		# ici créer un objet et le renvoyer
+		for idx, data in enumerate(datas):
+
+			prod = Product()
+			prod.set_id(data[0])
+			prod.set_name(data[1])
+			prod.set_code(data[2])
+			prod.set_nutrition_grade(data[3])
+			prod.set_stores(data[4])
+			products.append(prod)
 		return products
+			# products.append(data)
+			# Product(products)
+			# print(data)
+			
 
 	def readOne(self, choice=int):
 		req = "SELECT * FROM products WHERE id = '{}'".format(choice)
 		self.cursor.execute(req)
 		data = self.cursor.fetchone()
-		attributes = []
-		for attr in data:
-			attributes.append(attr)
-		return attributes
+		# for attr in data:
+		oneProd = Product()
+		oneProd.set_id(data[0])
+		oneProd.set_name(data[1])
+		oneProd.set_code(data[2])
+		oneProd.set_nutrition_grade(data[3])
+		oneProd.set_stores([data[4]])
+		
+		return oneProd
 
 	def update(self):
 		pass

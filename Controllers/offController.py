@@ -2,7 +2,7 @@
 import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
 
-import Config.settings as settings
+import Config.config as cf
 import Api.off as off
 import Models.category as c
 import Models.product as p
@@ -16,7 +16,7 @@ class OffController:
 
 	def init_datas(self):
 		index = 1
-		for category in settings.CATEGORIES:
+		for category in cf.CATEGORIES:
 			products = self.off.get_products(category)
 			self.__store_category(category)
 			for product in products:

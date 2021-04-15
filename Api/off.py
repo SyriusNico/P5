@@ -3,7 +3,7 @@ import pprint
 import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
 import requests
-import Config.settings as settings
+import Config.config as cf
 import Database.database as dt
 
 class Off():
@@ -13,7 +13,7 @@ class Off():
 	def __init__(self):
 		
 		self.db = dt.Database()
-		self.url = settings.URL
+		self.url = cf.URL
 
 
 	def __get_payload(self, category):
@@ -24,7 +24,7 @@ class Off():
 			'tag_0': category,
 			'tagtype_1': 'nutrition_grade_fr',
 			'tag_contains_1': 'contains',
-			'page_size': settings.NUMBER_PRODUCT, 
+			'page_size': cf.NUMBER_PRODUCT, 
 			'json': 'true',
 		}
 

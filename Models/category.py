@@ -12,6 +12,12 @@ class Category(d.Database):
 		self.id_category = id_category
 		self.name = name
 
+	def set_id_category(self, _id):
+		self.id_category = _id
+
+	def set_name(self, name):
+		self.name = name
+
 	def create(self):
 		if self._can_be_created():
 			req =("INSERT INTO categories (name) VALUES ('{}')".format(self.name)
@@ -33,9 +39,14 @@ class Category(d.Database):
 		# fetchall a faire dans le model
 		datas = self.cursor.fetchall()
 		categories = []
+		# ici créer un objet et le renvoyer
 		for data in datas:
+			cat = Category()
+			cat.set_id_category(data[0])
+			cat.set_name(data[1])
 			categories.append(data)
 		return categories
+
 
 	def update(self):
 		pass

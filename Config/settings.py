@@ -1,22 +1,9 @@
-# coding: utf-8
-import sys
-sys.path.append('C:/Users/Utilisateur/Documents/ExerciceOC/Pur_Beurre')
+# coding : utf-8
 
-# Mettre un commentaire qui explique comment trouver les catégories
-# quelles sont les valeurs par défaut
-# + infos nécessaires
-CATEGORIES = [
-	'surgeles',
-	'viandes', 
-	'sauces', 
-	'fromages', 
-	'legumineuses'
-]
+# Access to the database
 
-
-# The number of products scan in the query
-NUMBER_PRODUCT = 50
-
-# Request parameters
-
-URL = 'https://fr.openfoodfacts.org/cgi/search.pl'
+SETTINGS = {
+'user' :'root',
+'password' :'Bastille@1789',
+'database' :'mydata'
+}

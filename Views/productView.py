@@ -1,7 +1,6 @@
 # coding : utf-8
 import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-import Database.database as d
 import Controllers.productController as p
 
 class ProductView:
@@ -9,24 +8,27 @@ class ProductView:
 	def __init__(self):
 
 		self.prodView = p.ProductController()
-		self.show_products()
 
 
-	def show_products(self):
-
-		products = self.prodView.send_products()
+	def show_products(self,productController):
 
 		print("\n*****************************************")
 		print("****          PRODUITS               ****")
 		print("*****************************************\n")
-		for product in products:
-			print(product[0],product[1])
+		for product in productController:
+			print("****      ",product.id, product.product_name,"        ****")
 
-	def describe_product(self):
-		count = 0
-		product = self.prodView.send_product()
-		attributes = ["ID:", "NOM:", "CODE:", "NUTRISCORE:", "MAGASIN:", "CATEGORIE:"]
-		for attribute in product:
-			print(attributes[count], attribute)
-			print("___")
-			count += 1
+	def describe_product(self, productController):
+
+		# choice = int
+		# for product in productController:
+
+		# 	if product.id in productController:
+
+		print("\n*****************************************")
+		print("****     Description du produit      ****")
+		print("*****************************************\n")
+		print("\nNOM : ", productController.product_name)
+		print("\nCODE : ", productController.code)
+		print("\nNUTRISCORE : ", productController.nutrition_grade)
+		print("\nSTORES : ", productController.stores)
