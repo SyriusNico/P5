@@ -1,15 +1,27 @@
 # coding : utf-8
 import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-import Database.database as c
+import Models.product as p
 
-class Substitute(c.Database):
+class Substitute(p.Product):
 
 	"""Send alt product to the controller"""
 
-	def __init__(self, **product):
+	def __init__(self):
 		super().__init__()
-		pass
+		self.subsitute_id = None 
+
+	def bestProducts(self):
+
+		req = (" SELECT * FROM products WHERE nutrition_grade = 'a'")
+		self.cursor.execute(req)
+		bestProducts = self.cursor.fetchall()
+		return bestProducts
+
+
+
+
+
 
 
 	
