@@ -6,12 +6,7 @@ import Controllers.categoryController as c
 
 class CategoryView:
 
-	def __init__(self):
-
-		self.catView = c.CategoryController()
-
 	def show_categories(self, datas):
-
 		print("\n*****************************************")
 		print("****          CATEGORIES             ****")
 		print("*****************************************\n")

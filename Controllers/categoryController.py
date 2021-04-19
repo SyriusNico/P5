@@ -2,14 +2,16 @@
 import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
 import Models.category as c
+import Views.categoryView as v
 
 class CategoryController:
 	"""register categories for database"""
 	def __init__(self):
-
-		#self.db = d.Database()
 		self.cat = c.Category()
+		# ajouter category View ici
+		self.catView = v.CategoryView()
 
 	def store_categories(self):
 		categories = self.cat.read()
-		return categories
+		# return categories
+		return self.catView.show_categories(categories)

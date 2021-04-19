@@ -25,15 +25,12 @@ class Controller():
 
 		menu = c.MenuController()
 		if menu.makeChoice() == 1:
-			datas = catCtrl.store_categories()
-			categories.show_categories(datas)
+			catCtrl.store_categories()
 		# category = input("Choisissez une catégorie")
 			product_list = self.product_demand.send_products()
 			self.products.show_products(product_list)
 			product = self.product_demand.send_product()
 			# self.products.describe_product(product)
-			for prod in product_list:
-				if prod.id == product.id:
-					self.products.describe_product(product)
-				else:
-					print("le produit n'est pas dans la liste")
+			self.products.describe_product(product)
+
+		# A REVOIR A RETRAVAILLER

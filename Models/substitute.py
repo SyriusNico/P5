@@ -10,3 +10,6 @@ class Substitute(c.Database):
 	def __init__(self, **product):
 		super().__init__()
 		pass
+
+
+	

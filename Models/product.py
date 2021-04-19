@@ -94,6 +94,10 @@ class Product(c.Database):
 		
 		return oneProd
 
+	def is_better(self, choice):
+
+		req = (" SELECT * FROM products WHERE nutrition_grade = 'a' AND category_id = '{}' ".format(choice))
+
 	def update(self):
 		pass
 
