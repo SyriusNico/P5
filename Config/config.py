@@ -4,8 +4,8 @@
 # quelles sont les valeurs par défaut
 # + infos nécessaires
 CATEGORIES = [
-	'surgeles',
-	'viandes', 
+	'Produit à tartiner',
+	'Petit-déjeuners', 
 	'sauces', 
 	'fromages', 
 	'legumineuses'

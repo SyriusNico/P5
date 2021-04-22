@@ -9,13 +9,25 @@ class Substitute(p.Product):
 
 	def __init__(self):
 		super().__init__()
-		self.subsitute_id = None 
+		self.subsitute_id = None
+		self.bestProducts(2)
 
-	def bestProducts(self):
+	def bestProducts(self, category):
 
-		req = (" SELECT * FROM products WHERE nutrition_grade = 'a'")
+		req = (" SELECT * FROM products WHERE category_id = '{}' AND nutrition_grade = 'a' ".format(category))
 		self.cursor.execute(req)
-		bestProducts = self.cursor.fetchall()
+		datas = self.cursor.fetchall()
+		bestProducts = []
+		for idx, data in enumerate(datas):
+			subs = p.Product()
+			subs.set_id(data[0])
+			subs.set_name(data[1])
+			subs.set_code(data[2])
+			subs.set_nutrition_grade(data[3])
+			subs.set_stores(data[4])
+			subs.set_category_id(category)
+			bestProducts.append(subs)
+
 		return bestProducts
 
 

@@ -25,7 +25,7 @@ class Category(d.Database):
 			self.cursor.execute(req)
 			self.cnx.commit()
 		else:
-			print("le nom du produit n'est pas renseigné, le produit n'est pas enregistré en BDD")
+			print("le nom", self.name, "n'est pas renseigné", self.name, "n'est pas enregistré en BDD")
 		
 	def _can_be_created(self):
 		if self.name is None:

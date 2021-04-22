@@ -11,6 +11,9 @@ class CategoryController:
 		# ajouter category View ici
 		self.catView = v.CategoryView()
 
+	def get_id_category(self):
+		return self.cat.id_category
+
 	def store_categories(self):
 		categories = self.cat.read()
 		# return categories

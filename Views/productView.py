@@ -20,11 +20,6 @@ class ProductView:
 
 	def describe_product(self, productController):
 
-		# choice = int
-		# for product in productController:
-
-		# 	if product.id in productController:
-
 		print("\n*****************************************")
 		print("****     Description du produit      ****")
 		print("*****************************************\n")

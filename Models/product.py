@@ -32,6 +32,8 @@ class Product(c.Database):
 	def set_stores(self, stores):
 		self.stores = stores
 
+	def set_category_id(self, _id):
+		self.category_id = _id
 
 	def create(self):
 		if self._can_be_created():
@@ -43,7 +45,7 @@ class Product(c.Database):
 			self.cursor.execute(req, features)
 			self.cnx.commit()
 		else:
-			print("le nom du produit n'est pas renseigné, le produit n'est pas enregistré en BDD")
+			print(self.product_name,"n'est pas renseigné, le produit n'est pas enregistré en BDD")
 
 	def _can_be_created(self):
 		#TODO (vérification des données)
@@ -73,6 +75,7 @@ class Product(c.Database):
 			prod.set_code(data[2])
 			prod.set_nutrition_grade(data[3])
 			prod.set_stores(data[4])
+			prod.set_category_id(choice)
 			products.append(prod)
 		return products
 			# products.append(data)
@@ -91,12 +94,9 @@ class Product(c.Database):
 		oneProd.set_code(data[2])
 		oneProd.set_nutrition_grade(data[3])
 		oneProd.set_stores([data[4]])
-		
+
 		return oneProd
 
-	def is_better(self, choice):
-
-		req = (" SELECT * FROM products WHERE nutrition_grade = 'a' AND category_id = '{}' ".format(choice))
 
 	def update(self):
 		pass

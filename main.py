@@ -2,6 +2,7 @@
 import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
 import Controllers.controller as c
+import Controllers.offController as o
 import Models.category as ca
 """
 1 - Quel aliment souhaitez-vous remplacer ?
@@ -16,6 +17,8 @@ import Models.category as ca
 
 if __name__ == '__main__':
 
+	# off = o.OffController()
+	# off.init_datas()
 	start = c.Controller()
 	# cat = ca.Category()
 	# cat.read()

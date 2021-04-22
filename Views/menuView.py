@@ -23,6 +23,3 @@ class MenuView:
 		print("|                                                  |")
 		print("|__________________________________________________|")
 
-	def addToMyBasket(self):
-
-		print("Voulez enregistrer ce produit dans votre liste ?")

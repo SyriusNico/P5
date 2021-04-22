@@ -15,3 +15,7 @@ class MenuController():
 	def makeChoice(self):
 		choice = int(input("\nChoisissez une option : "))
 		return choice
+
+	def register(self):
+		register = int(input("\nVoulez enregistrer ce produit dans votre liste ?"))
+		return register
