@@ -38,8 +38,9 @@ class Product(c.Database):
 	def create(self):
 		if self._can_be_created():
 			req = (	
-			"INSERT INTO products (product_name, code, nutrition_grade, stores, category_id) VALUES (%s, %s,"
-			"%s, %s, %s)"
+			"INSERT INTO products \
+			(product_name, code, nutrition_grade, stores, category_id) \
+			VALUES (%s, %s,%s, %s, %s)"
 			)
 			features = ( self.product_name, self.code, self.nutrition_grade, self.stores, self.category_id )
 			self.cursor.execute(req, features)

@@ -1,13 +1,10 @@
+# coding : utf-8
 import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
 import Config.settings as s
 import Views.productView as p
 
 class MenuView:
-
-	def __init__(self):
-
-		self.screen()
 
 	def screen(self):
 		print(" __________________________________________________")
@@ -21,5 +18,14 @@ class MenuView:
 		print("|                                                  |")
 		print("|  2. Retrouver mes aliments substitués            |")
 		print("|                                                  |")
+		print("|  3. Quitter l'application                        |")
 		print("|__________________________________________________|")
 
+	def bye(self):
+		print( """   ##     ##  ##            #####    ######   ##  ##    ####     ####    #####
+  ####    ##  ##            ##  ##   ##       ##  ##   ##  ##     ##     ##  ##
+ ##  ##   ##  ##            ##  ##   ##       ##  ##   ##  ##     ##     ##  ##
+ ######   ##  ##            #####    ####     ##  ##   ##  ##     ##     #####
+ ##  ##   ##  ##            ####     ##       ##  ##   ##  ##     ##     ####
+ ##  ##   ##  ##            ## ##    ##         ###    ##  ##     ##     ## ##
+ ##  ##    ####             ##  ##   ######     ##      ####     ####    ##  ##""")

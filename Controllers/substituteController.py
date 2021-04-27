@@ -2,7 +2,6 @@
 import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
 import Models.substitute as s
-import Views.substituteView as sv
 
 class SubstituteController():
 
@@ -11,13 +10,18 @@ class SubstituteController():
 
 	def compare(self, productToCompare, product_list):
 
-		print("\nVous pouvez remplacer ce produit par : ")
 		for product in product_list:	
 			if product.nutrition_grade != productToCompare.nutrition_grade :
 				if product.nutrition_grade == 'a':
-					print(product.product_name, product.nutrition_grade)
+					return product
 				if product.nutrition_grade == 'b':
-					print(product.product_name, product.nutrition_grade)
-			# else:
-			# 	print("Aucun produit n'a de meilleur qualité nutritionnelle")
+					return product
+			
 
+
+	def store(self, product, substitute):
+		self.substitute.create(product, substitute)
+
+	def myList(self):
+		myList = self.substitute.readSubList()
+		return myList
