@@ -8,12 +8,18 @@ class MenuController():
 	def __init__(self): 
 		self.choice = None
 		self.response = None
-		self.pick = None
+
 
 	def menuScreen(self):
 		menu = m.MenuView()
 		mainMenu = menu.screen()
 		return mainMenu
+
+	def substituteScreen(self):
+		menu = m.MenuView()
+		subsMenu = menu.substituteScreen()
+		return subsMenu
+		
 	def menuBye(self):
 		menu = m.MenuView()
 		bye = menu.bye()
@@ -28,5 +34,5 @@ class MenuController():
 		return self.response
 
 	def pick(self):
-		self.pick = int(input("\nChoisissez un produit en tapant son ID :\n"))
-		return self.pick
+		self.response = int(input("\nChoisissez un produit en tapant son ID :\n"))
+		return self.response

@@ -21,6 +21,18 @@ class MenuView:
 		print("|  3. Quitter l'application                        |")
 		print("|__________________________________________________|")
 
+	def substituteScreen(self):
+		print(" __________________________________________________")
+		print("|                                                    |")
+		print("|                 * MENU *                           |")
+		print("|                                                    |")
+		print("|  1. Sélectionner un produit                        |")
+		print("|                                                    |")
+		print("|  2. Effacer tous les éléments (Choix irréversible) |")
+		print("|                                                    |")
+		print("|  3. Retour                                         |")
+		print("|____________________________________________________|")
+
 	def bye(self):
 		print( """   ##     ##  ##            #####    ######   ##  ##    ####     ####    #####
   ####    ##  ##            ##  ##   ##       ##  ##   ##  ##     ##     ##  ##

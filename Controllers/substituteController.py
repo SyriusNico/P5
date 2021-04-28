@@ -16,11 +16,15 @@ class SubstituteController():
 					return product
 				if product.nutrition_grade == 'b':
 					return product
-			
+			else:
+				return productToCompare
 
 
 	def store(self, product, substitute):
 		self.substitute.create(product, substitute)
+
+	def deleteAll(self):
+		self.substitute.deleteAll()
 
 	def myList(self):
 		myList = self.substitute.readSubList()

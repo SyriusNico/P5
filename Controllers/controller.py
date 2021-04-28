@@ -52,8 +52,21 @@ class Controller():
 					itsGood = False
 
 			elif menu.choice == 2:
-				subs_list = self.substitute_demand.myList()
-				self.subView.show_myList(subs_list)
+				menu.substituteScreen()
+				menu.makeChoice()
+				if menu.choice == 1:
+					subs_list = self.substitute_demand.myList()
+					if subs_list != []:
+						self.subView.show_myList(subs_list)
+						menu.pick()
+						self.subView.details(menu.response,subs_list)
+					else:
+						print("La liste est vide.")
+				if menu.choice == 2:
+					self.substitute_demand.deleteAll()
+					print("La liste à été vidé.")
+				if menu.choice == 3:
+					itsGood == False
 
 
 			elif menu.choice == 3:
