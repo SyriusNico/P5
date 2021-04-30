@@ -17,4 +17,4 @@ class CategoryController:
 	def store_categories(self):
 		categories = self.cat.read()
 		# return categories
-		return self.catView.show_categories(categories)
+		return categories

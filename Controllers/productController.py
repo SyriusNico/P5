@@ -15,17 +15,15 @@ class ProductController:
 		products = self.prod.read(self.catNumber)
 		return products
 
-	def send_product(self):
+	def send_product(self, categories):
 
 		correct = False
 		while correct == False:
-			product_id = int(input("\nChoisissez un produit : "))
-
-			prod_from_db = self.prod.readOne(product_id)
-			# # check if product exists in DB
-			if prod_from_db:
-				# check if product category correspond to our cat id
-				if prod_from_db.id == product_id:
-					# le produit chosi est OK
-					correct = True
-					return prod_from_db
+			try:
+				product_id = int(input("\nChoisissez un produit : "))
+				prod_from_db = self.prod.readOne(product_id)
+				correct = True
+				return prod_from_db
+			except TypeError:
+				print("Ce choix ne correspond à aucun produit")
+				correct = False

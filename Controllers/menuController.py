@@ -26,13 +26,12 @@ class MenuController():
 		return bye
 
 	def makeChoice(self):
-		self.choice = int(input("\nChoisissez une option : "))
+		self.choice = int(input("\nChoisissez une option : \n\n\n"))
 		return self.choice
 
 	def register(self):
-		self.response = int(input("\nVoulez enregistrer ce produit dans votre liste ?\n1.oui\n2.non\n"))
+		self.response = int(input("\nVoulez enregistrer ce produit dans votre liste ?\n1.oui\n2.non\n\n\n"))
 		return self.response
 
-	def pick(self):
-		self.response = int(input("\nChoisissez un produit en tapant son ID :\n"))
-		return self.response
+
+

@@ -10,5 +10,5 @@ class CategoryView:
 		print("\n*****************************************")
 		print("****          CATEGORIES             ****")
 		print("*****************************************\n")
-		for i in datas:
-			print(i[0],i[1])
+		for item in datas:
+			print(item.id_category,item.name)

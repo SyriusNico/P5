@@ -12,9 +12,9 @@ class MenuView:
 		print("|           BIENVENUE SUR PUR BEURRE               |")
 		print("|                   ****                           |")
 		print("|                                                  |")
-		print("|                 * MENU *                         |")
+		print("|            * MENU PRINCIPAL*                     |")
 		print("|                                                  |")
-		print("|  1. Aliment à remplacer                          |")
+		print("|  1. Trouver un aliment                           |")
 		print("|                                                  |")
 		print("|  2. Retrouver mes aliments substitués            |")
 		print("|                                                  |")
@@ -22,11 +22,11 @@ class MenuView:
 		print("|__________________________________________________|")
 
 	def substituteScreen(self):
-		print(" __________________________________________________")
+		print(" ____________________________________________________")
 		print("|                                                    |")
-		print("|                 * MENU *                           |")
+		print("|             * MENU SUBSTITUTS*                     |")
 		print("|                                                    |")
-		print("|  1. Sélectionner un produit                        |")
+		print("|  1. Afficher mes produits substitués               |")
 		print("|                                                    |")
 		print("|  2. Effacer tous les éléments (Choix irréversible) |")
 		print("|                                                    |")
@@ -39,5 +39,5 @@ class MenuView:
  ##  ##   ##  ##            ##  ##   ##       ##  ##   ##  ##     ##     ##  ##
  ######   ##  ##            #####    ####     ##  ##   ##  ##     ##     #####
  ##  ##   ##  ##            ####     ##       ##  ##   ##  ##     ##     ####
- ##  ##   ##  ##            ## ##    ##         ###    ##  ##     ##     ## ##
+ ##  ##   ##  ##            ## ##    ##        ####    ##  ##     ##     ## ##
  ##  ##    ####             ##  ##   ######     ##      ####     ####    ##  ##""")

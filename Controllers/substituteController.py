@@ -16,16 +16,16 @@ class SubstituteController():
 					return product
 				if product.nutrition_grade == 'b':
 					return product
-			else:
-				return productToCompare
+				if product.nutrition_grade == productToCompare.nutrition_grade:
+					print("Il n'a pas de meilleur produit à proposer")
 
 
 	def store(self, product, substitute):
-		self.substitute.create(product, substitute)
+		self.substitute.save(product, substitute)
 
 	def deleteAll(self):
 		self.substitute.deleteAll()
 
 	def myList(self):
-		myList = self.substitute.readSubList()
+		myList = self.substitute.readAll()
 		return myList

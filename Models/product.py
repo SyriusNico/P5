@@ -98,6 +98,8 @@ class Product(c.Database):
 
 		return oneProd
 
+	def choiceIsGood(self, choice):
+		pass
 
 	def update(self):
 		pass

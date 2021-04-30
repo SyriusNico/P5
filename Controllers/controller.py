@@ -31,17 +31,20 @@ class Controller():
 			menu.makeChoice()
 			if menu.choice == 1:
 				itsGood = True
-				self.category_demand.store_categories()
+				categories = self.category_demand.store_categories()
+				print(categories)
+				self.categories.show_categories(categories)
 				product_list = self.product_demand.send_products()
 				self.products.show_products(product_list)
-				product = self.product_demand.send_product()
+				product = self.product_demand.send_product(categories)
 				self.products.describe_product(product)
 				substitute = self.substitute_demand.compare(product, product_list)
 				self.subView.show_subs(substitute)
 				menu.register()
+
 				# User choose yes
 				if menu.response == 1:
-					self.substitute_demand.store(product, substitute)
+					self.substitute_demand.store(product.id, substitute.id)
 					itsGood = False
 				# User choose no
 				elif menu.response == 2:
@@ -57,9 +60,7 @@ class Controller():
 				if menu.choice == 1:
 					subs_list = self.substitute_demand.myList()
 					if subs_list != []:
-						self.subView.show_myList(subs_list)
-						menu.pick()
-						self.subView.details(menu.response,subs_list)
+						self.subView.details(subs_list)
 					else:
 						print("La liste est vide.")
 				if menu.choice == 2:

@@ -44,7 +44,7 @@ class Category(d.Database):
 			cat = Category()
 			cat.set_id_category(data[0])
 			cat.set_name(data[1])
-			categories.append(data)
+			categories.append(cat)
 		return categories
 
 
