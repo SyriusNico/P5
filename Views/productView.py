@@ -1,13 +1,6 @@
 # coding : utf-8
-import sys
-sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-import Controllers.productController as p
 
 class ProductView:
-
-	def __init__(self):
-
-		self.prodView = p.ProductController()
 
 
 	def show_products(self,productController):

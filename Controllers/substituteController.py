@@ -10,7 +10,7 @@ class SubstituteController():
 
 	def compare(self, productToCompare, product_list):
 
-		for product in product_list:	
+		for product in product_list:
 			if product.nutrition_grade != productToCompare.nutrition_grade :
 				if product.nutrition_grade == 'a':
 					return product

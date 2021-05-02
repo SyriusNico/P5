@@ -8,24 +8,24 @@ class SubstituteView():
 
 
 	def show_subs(self, substitute):
-		try:
-			print("_______________________________________________")
-			print("                                               ")
-			print("   Vous pouvez remplacer ce produit par :      ")
-			print("                                               ")
-			print("ID :   ", substitute.id, "                     ")
-			print("                                               ")
-			print("Nom :  ", substitute.product_name,"            ")
-			print("                                               ")
-			print("Code : ", substitute.code, "                   ")
-			print("                                               ")
-			print("Nutriscore :", substitute.nutrition_grade, "   ")
-			print("                                               ")
-			print("Magasins : ", substitute.stores, "             ")
-			print("                                               ")
-			print("###############################################")
-		except AttributeError:
-			print("Il n'y a pas de substitut possible")
+		# try:
+		print("_______________________________________________")
+		print("                                               ")
+		print("   Vous pouvez remplacer ce produit par :      ")
+		print("                                               ")
+		print("ID :   ", substitute.id, "                     ")
+		print("                                               ")
+		print("Nom :  ", substitute.product_name,"            ")
+		print("                                               ")
+		print("Code : ", substitute.code, "                   ")
+		print("                                               ")
+		print("Nutriscore :", substitute.nutrition_grade, "   ")
+		print("                                               ")
+		print("Magasins : ", substitute.stores, "             ")
+		print("                                               ")
+		print("###############################################")
+		# except AttributeError:
+		# 	print("Il n'y a pas de substitut possible")
 
 	def show_myList(self, myList):
 		for item in myList:

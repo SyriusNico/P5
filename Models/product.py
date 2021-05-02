@@ -84,8 +84,9 @@ class Product(c.Database):
 			# print(data)
 			
 
-	def readOne(self, choice=int):
-		req = "SELECT * FROM products WHERE id = '{}'".format(choice)
+	def readOne(self, prod_id, cat_id):
+		req = "SELECT * FROM products WHERE id = '{}' \
+		AND category_id = '{}'".format(prod_id, cat_id)
 		self.cursor.execute(req)
 		data = self.cursor.fetchone()
 		# for attr in data:
@@ -95,6 +96,7 @@ class Product(c.Database):
 		oneProd.set_code(data[2])
 		oneProd.set_nutrition_grade(data[3])
 		oneProd.set_stores([data[4]])
+		oneProd.set_category_id(cat_id)
 
 		return oneProd
 
