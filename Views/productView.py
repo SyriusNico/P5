@@ -24,3 +24,4 @@ class ProductView:
 		print("\nCODE : ", productController.code)
 		print("\nNUTRISCORE : ", productController.nutrition_grade)
 		print("\nSTORES : ", productController.stores)
+		print("\nLIEN : ", productController.url)

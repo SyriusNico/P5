@@ -15,6 +15,7 @@ class Product(c.Database):
 		self.code = product.get('code') 
 		self.nutrition_grade = product.get('nutrition_grade_fr')
 		self.stores = product.get('stores')
+		self.url = product.get('url')
 		self.category_id = ''
 
 	def set_id(self, _id):
@@ -32,6 +33,9 @@ class Product(c.Database):
 	def set_stores(self, stores):
 		self.stores = stores
 
+	def set_url(self, url):
+		self.url = url
+
 	def set_category_id(self, _id):
 		self.category_id = _id
 
@@ -39,10 +43,11 @@ class Product(c.Database):
 		if self._can_be_created():
 			req = (	
 			"INSERT INTO products \
-			(product_name, code, nutrition_grade, stores, category_id) \
-			VALUES (%s, %s,%s, %s, %s)"
+			(product_name, code, nutrition_grade, stores, url, category_id) \
+			VALUES (%s, %s,%s, %s, %s, %s)"
 			)
-			features = ( self.product_name, self.code, self.nutrition_grade, self.stores, self.category_id )
+			features = ( self.product_name, self.code, self.nutrition_grade, \
+			self.stores, self.url, self.category_id )
 			self.cursor.execute(req, features)
 			self.cnx.commit()
 		else:
@@ -57,6 +62,8 @@ class Product(c.Database):
 		elif self.nutrition_grade is None:
 			return False
 		elif self.stores is None:
+			return False
+		elif self.url is None:
 			return False
 		return True
 
@@ -76,6 +83,7 @@ class Product(c.Database):
 			prod.set_code(data[2])
 			prod.set_nutrition_grade(data[3])
 			prod.set_stores(data[4])
+			prod.set_url(data[5])
 			prod.set_category_id(choice)
 			products.append(prod)
 		return products
@@ -96,16 +104,23 @@ class Product(c.Database):
 		oneProd.set_code(data[2])
 		oneProd.set_nutrition_grade(data[3])
 		oneProd.set_stores([data[4]])
+		oneProd.set_url(data[5])
 		oneProd.set_category_id(cat_id)
 
 		return oneProd
 
-	def choiceIsGood(self, choice):
-		pass
+	def readProd(self, prod_id):
+		req = "SELECT * FROM products WHERE id = '{}'".format(prod_id)
+		self.cursor.execute(req)
+		data = self.cursor.fetchone()
+		# for attr in data:
+		oneProd = Product()
+		oneProd.set_id(data[0])
+		oneProd.set_name(data[1])
+		oneProd.set_code(data[2])
+		oneProd.set_nutrition_grade(data[3])
+		oneProd.set_stores(data[4])
+		oneProd.set_url(data[5])
+		oneProd.set_category_id(data[6])
 
-	def update(self):
-		pass
-
-	def delete(self):
-		pass
-
+		return oneProd

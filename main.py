@@ -18,6 +18,7 @@ import Models.category as ca
 if __name__ == '__main__':
 
 	# off = o.OffController()
+	# off.read()
 	# off.init_datas()
 	start = c.Controller()
 	# cat = ca.Category()

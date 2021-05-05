@@ -2,6 +2,7 @@
 import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
 
+import pprint
 import Config.config as cf
 import Api.off as off
 import Models.category as c
@@ -23,7 +24,11 @@ class OffController:
 				self.__store_product(index, **product)
 			index += 1
 
-
+	def read(self):
+		index = 1
+		for category in cf.CATEGORIES:
+			products = self.off.get_products(category)
+			pprint.pprint(products)
 
 	def __store_category(self, category):
 		cat = c.Category()

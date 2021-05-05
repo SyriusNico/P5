@@ -70,15 +70,24 @@ class Substitute(c.Database):
 		self.product = product
 		self.substitute = substitute
 
-	def save(self, product_id, substitute_id):
+	def save(self, product, substitute):
 		# enregistrement du substitute
 		# self.product.id
 		# self.substitute.id
-		req = ("INSERT INTO substitutes (product_id, substitute_id) VALUES (%s,%s)")
-		features = (product_id, substitute_id)
-		self.cursor.execute(req, features)
-		self.cnx.commit()
-		
+		try:
+			req = ("INSERT INTO substitutes (product_id, substitute_id) \
+			VALUES (%s,%s)")
+			features = (product.id, substitute.id)
+			self.cursor.execute(req, features)
+			self.cnx.commit()
+		except AttributeError:
+			print("Le produit sera sauvegardé en tant que substitut.")
+			req = ("INSERT INTO substitutes (product_id, substitute_id) \
+			VALUES (%s,%s)")
+			features = (product.id, product.id)
+			self.cursor.execute(req, features)
+			self.cnx.commit()
+
 
 	# @staticmethod
 	def readAll(self):
@@ -87,16 +96,16 @@ class Substitute(c.Database):
 		self.cursor.execute(req)
 		datas = self.cursor.fetchall()
 		substitutes = []
-
-		for idx, data in enumerate(datas):
+		for data in datas:
 			product = p.Product()
-			product = product.readOne(data[0])
+			product = product.readProd(data[0])
 			product_2 = p.Product()
-			product_2 = product_2.readOne(data[1])
+			product_2 = product_2.readProd(data[1])
 			new_substitute = Substitute(product, product_2)
 			substitutes.append(new_substitute)
-		
 		return substitutes
+
+
 
 	def deleteAll(self):
 		req = ("DELETE FROM substitutes")
