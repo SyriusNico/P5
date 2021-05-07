@@ -1,7 +1,7 @@
 # Acces to the Database
 
 SETTINGS = {
-	'user' :'username',
-	'password' :'yourpassword',
-	'database' :'yourdata'
+	'user': 'username',
+	'password': 'yourpassword',
+	'database': 'yourdata'
 }
