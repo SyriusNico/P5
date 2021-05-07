@@ -46,17 +46,18 @@ For any suggestion you're welcome.
 In the project folder run the file main.py and follow the instructions.
 ```
 ## PROGRAM INSTALLATION
-```
+
 **Requirements**
+```
 - python3
 - requests
 - mysql.connector
-
+```
 **Steps**
+```
 - Fork this repository to your Github account.
 - Clone or download the project to a local folder.
 ```
 ## CONFIGURATION
-```
-```
+
 ## PROGRAM LAUNCH
