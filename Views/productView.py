@@ -2,16 +2,15 @@
 
 class ProductView:
 
-
-	def show_products(self,productController):
+	def show_products(self, productController):
 
 		try:
 			print("\n*****************************************")
 			print("****          PRODUITS               ****")
 			print("*****************************************\n")
-			
+
 			for product in productController:
-				print(product.id,"     ", product.product_name)
+				print(product.id, "     ", product.product_name)
 		except TypeError:
 			print("Votre choix ne correspond à aucun produit.")
 

@@ -1,8 +1,4 @@
 # coding : utf-8
-import sys
-sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-import Config.settings as s
-import Views.productView as p
 
 class MenuView:
 
@@ -34,10 +30,4 @@ class MenuView:
 		print("|____________________________________________________|")
 
 	def bye(self):
-		print( """   ##     ##  ##            #####    ######   ##  ##    ####     ####    #####
-  ####    ##  ##            ##  ##   ##       ##  ##   ##  ##     ##     ##  ##
- ##  ##   ##  ##            ##  ##   ##       ##  ##   ##  ##     ##     ##  ##
- ######   ##  ##            #####    ####     ##  ##   ##  ##     ##     #####
- ##  ##   ##  ##            ####     ##       ##  ##   ##  ##     ##     ####
- ##  ##   ##  ##            ## ##    ##        ####    ##  ##     ##     ## ##
- ##  ##    ####             ##  ##   ######     ##      ####     ####    ##  ##""")
+		print("\n\n*** AU REVOIR ***\n\n")

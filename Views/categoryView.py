@@ -7,4 +7,4 @@ class CategoryView:
 		print("****          CATEGORIES             ****")
 		print("*****************************************\n")
 		for item in datas:
-			print(item.id_category,item.name)
+			print(item.id_category, item.name)

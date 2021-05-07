@@ -1,14 +1,14 @@
 # coding : utf-8
-import sys 
+import Views.menuView as m
+import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-import	Views.menuView as m
+
 
 class MenuController():
-	"""docstring for MenuController"""
-	def __init__(self): 
+
+	def __init__(self):
 		self.choice = None
 		self.response = None
-
 
 	def menuScreen(self):
 		menu = m.MenuView()
@@ -19,7 +19,7 @@ class MenuController():
 		menu = m.MenuView()
 		subsMenu = menu.substituteScreen()
 		return subsMenu
-		
+
 	def menuBye(self):
 		menu = m.MenuView()
 		bye = menu.bye()
@@ -30,8 +30,8 @@ class MenuController():
 		return self.choice
 
 	def register(self):
-		self.response = int(input("\nVoulez enregistrer ce produit dans votre liste ?\n1.oui\n2.non\n\n\n"))
+		self.response = int(input(
+			"\nVoulez enregistrer ce produit dans"
+			" votre liste ?\n1.oui\n2.non\n\n\n")
+		)
 		return self.response
-
-
-

@@ -1,20 +1,19 @@
 # coding: utf-8
-import pprint
-import sys
-sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
 import requests
 import Config.config as cf
 import Database.database as dt
+import sys
+sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
+
 
 class Off():
 	"""
 	only send requests to the API
 	"""
 	def __init__(self):
-		
+
 		self.db = dt.Database()
 		self.url = cf.URL
-
 
 	def __get_payload(self, category):
 		return {
@@ -24,7 +23,7 @@ class Off():
 			'tag_0': category,
 			'tagtype_1': 'nutrition_grade_fr',
 			'tag_contains_1': 'contains',
-			'page_size': cf.NUMBER_PRODUCT, 
+			'page_size': cf.NUMBER_PRODUCT,
 			'json': 'true',
 		}
 
@@ -34,6 +33,5 @@ class Off():
 		req = requests.get(self.url, payload)
 		products = req.json().get('products')
 		self.db.cursor.close()
-		self.db.cnx.close()	
+		self.db.cnx.close()
 		return products
-

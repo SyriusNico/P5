@@ -1,8 +1,9 @@
+# coding : utf-8
+import Models.product as p
+import Views.productView as v
 import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
 
-import Models.product as p
-import Views.productView as v
 
 class ProductController:
 
@@ -14,14 +15,12 @@ class ProductController:
 
 	def choose_cat(self):
 		self.catNumber = int(input("\nChoisissez une categorie : "))
+		print("Veuillez patienter ...")
 		return self.catNumber
 
 	def send_products(self):
-		# self.catNumber = int(input("\nChoisissez une categorie : "))
 		products = self.prod.read(self.catNumber)
 		return products
-
-
 
 	def send_product(self):
 		product_list = self.send_products()
@@ -32,12 +31,14 @@ class ProductController:
 				product_id = int(input("\nChoisissez un produit : "))
 				prod_from_db = self.prod.readOne(product_id, self.catNumber)
 				if prod_from_db.category_id != self.catNumber:
-					print("Il n'y a aucun produit avec l'ID : {} " 
-					"pour cette categorie".format(prod_from_db.id))
-				else: 
+					print(
+						"Il n'y a aucun produit avec l'ID : {} "
+						"pour cette categorie".format(prod_from_db.id)
+					)
+				else:
 					correct = True
 					return prod_from_db
-				
+
 			except TypeError:
 				print("Ce choix ne correspond à aucun produit")
 				correct = False

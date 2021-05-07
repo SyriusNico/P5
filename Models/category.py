@@ -1,13 +1,14 @@
 # coding : utf-8
+import Database.database as d
 import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-import Database.database as d
+
 
 class Category(d.Database):
 
 	"""Send category data to the controller"""
 
-	def __init__(self, id_category = None, name = None):
+	def __init__(self, id_category=None, name=None):
 		super().__init__()
 		self.id_category = id_category
 		self.name = name
@@ -20,13 +21,17 @@ class Category(d.Database):
 
 	def create(self):
 		if self._can_be_created():
-			req =("INSERT INTO categories (name) VALUES ('{}')".format(self.name)
-				)
+			req = (
+				"INSERT INTO categories (name) VALUES ('{}')".format(self.name)
+			)
 			self.cursor.execute(req)
 			self.cnx.commit()
 		else:
-			print("le nom", self.name, "n'est pas renseigné", self.name, "n'est pas enregistré en BDD")
-		
+			print(
+				"le nom", self.name, "n'est pas renseigné",
+				self.name, "n'est pas enregistré en BDD"
+			)
+
 	def _can_be_created(self):
 		if self.name is None:
 			return False
@@ -46,10 +51,3 @@ class Category(d.Database):
 			cat.set_name(data[1])
 			categories.append(cat)
 		return categories
-
-
-	def update(self):
-		pass
-
-	def delete(self):
-		pass

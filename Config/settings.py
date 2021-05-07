@@ -3,7 +3,7 @@
 # Access to the database
 
 SETTINGS = {
-'user' :'root',
-'password' :'Bastille@1789',
-'database' :'mydata'
+	'user': 'root',
+	'password': 'Bastille@1789',
+	'database': 'mydata'
 }

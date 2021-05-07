@@ -1,19 +1,16 @@
 # coding : utf-8
-import sys
-sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-
-import pprint
 import Config.config as cf
 import Api.off as off
 import Models.category as c
 import Models.product as p
-# Prends en compte l'interrogation du client
+import sys
+sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
+
+
 class OffController:
 
 	def __init__(self):
-
 		self.off = off.Off()
-		# self.init_datas()
 
 	def init_datas(self):
 		index = 1
@@ -25,10 +22,9 @@ class OffController:
 			index += 1
 
 	def read(self):
-		index = 1
 		for category in cf.CATEGORIES:
 			products = self.off.get_products(category)
-			pprint.pprint(products)
+			return products
 
 	def __store_category(self, category):
 		cat = c.Category()

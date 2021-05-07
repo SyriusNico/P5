@@ -1,9 +1,9 @@
 # coding : utf-8
+import Database.database as c
 import sys
 sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-import Database.database as c
-# FAIRE PAREIL POUR CATEGORY
-# KEVIN - EST CE QUE JE DOIS LE METTRE ICI ??
+
+
 class Product(c.Database):
 
 	"""Send product data to the controller"""
@@ -12,7 +12,7 @@ class Product(c.Database):
 		super().__init__()
 		self.id = None
 		self.product_name = product.get('product_name')
-		self.code = product.get('code') 
+		self.code = product.get('code')
 		self.nutrition_grade = product.get('nutrition_grade_fr')
 		self.stores = product.get('stores')
 		self.url = product.get('url')
@@ -41,20 +41,25 @@ class Product(c.Database):
 
 	def create(self):
 		if self._can_be_created():
-			req = (	
-			"INSERT INTO products \
-			(product_name, code, nutrition_grade, stores, url, category_id) \
-			VALUES (%s, %s,%s, %s, %s, %s)"
+			req = (
+				"INSERT INTO products \
+				(product_name, code, nutrition_grade, stores, url, category_id) \
+				VALUES (%s, %s,%s, %s, %s, %s)"
 			)
-			features = ( self.product_name, self.code, self.nutrition_grade, \
-			self.stores, self.url, self.category_id )
+			features = (
+				self.product_name, self.code, self.nutrition_grade,
+				self.stores, self.url, self.category_id
+			)
 			self.cursor.execute(req, features)
 			self.cnx.commit()
 		else:
-			print(self.product_name,"n'est pas renseigné, le produit n'est pas enregistré en BDD")
+			print(
+				self.product_name,
+				"n'est pas renseigné, le produit n'est pas enregistré en BDD"
+			)
 
 	def _can_be_created(self):
-		#TODO (vérification des données)
+
 		if self.product_name is None:
 			return False
 		elif self.code is None:
@@ -68,15 +73,12 @@ class Product(c.Database):
 		return True
 
 	def read(self, choice=int):
+
 		req = "SELECT * FROM products WHERE category_id = '{}'".format(choice)
 		self.cursor.execute(req)
-		# fetchall a faire dans le model
 		datas = self.cursor.fetchall()
 		products = []
-
-		# ici créer un objet et le renvoyer
 		for idx, data in enumerate(datas):
-
 			prod = Product()
 			prod.set_id(data[0])
 			prod.set_name(data[1])
@@ -87,17 +89,12 @@ class Product(c.Database):
 			prod.set_category_id(choice)
 			products.append(prod)
 		return products
-			# products.append(data)
-			# Product(products)
-			# print(data)
-			
 
 	def readOne(self, prod_id, cat_id):
 		req = "SELECT * FROM products WHERE id = '{}' \
 		AND category_id = '{}'".format(prod_id, cat_id)
 		self.cursor.execute(req)
 		data = self.cursor.fetchone()
-		# for attr in data:
 		oneProd = Product()
 		oneProd.set_id(data[0])
 		oneProd.set_name(data[1])
@@ -106,14 +103,12 @@ class Product(c.Database):
 		oneProd.set_stores([data[4]])
 		oneProd.set_url(data[5])
 		oneProd.set_category_id(cat_id)
-
 		return oneProd
 
 	def readProd(self, prod_id):
 		req = "SELECT * FROM products WHERE id = '{}'".format(prod_id)
 		self.cursor.execute(req)
 		data = self.cursor.fetchone()
-		# for attr in data:
 		oneProd = Product()
 		oneProd.set_id(data[0])
 		oneProd.set_name(data[1])
@@ -122,5 +117,4 @@ class Product(c.Database):
 		oneProd.set_stores(data[4])
 		oneProd.set_url(data[5])
 		oneProd.set_category_id(data[6])
-
 		return oneProd

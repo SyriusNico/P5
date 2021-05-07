@@ -1,17 +1,16 @@
-import sys
-sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
 import Controllers.menuController as c
 import Controllers.categoryController as ctrl
-import Controllers.productController as  pc
+import Controllers.productController as pc
 import Controllers.substituteController as sc
 import Views.categoryView as cat
 import Views.productView as p
 import Views.substituteView as s
+import sys
+sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
 
 
 class Controller():
 
-	
 	def __init__(self):
 
 		self.category_demand = ctrl.CategoryController()
@@ -32,9 +31,9 @@ class Controller():
 				menu.makeChoice()
 				if menu.choice == 1:
 					itsGood = True
-					categories = self.category_demand.store_categories()
-					category = self.product_demand.choose_cat()
-					if category > 5:
+					self.category_demand.store_categories()
+					select_category = self.product_demand.choose_cat()
+					if select_category > 5:
 						itsGood = False
 					else:
 						product_list = self.product_demand.send_products()
@@ -50,7 +49,6 @@ class Controller():
 						itsGood = False
 					# User choose no
 					elif menu.response == 2:
-						menu.menuScreen()
 						itsGood = False
 					else:
 						print("Ce choix ne correspond à aucune option")
