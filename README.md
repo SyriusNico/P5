@@ -67,6 +67,7 @@ In the project folder run the file main.py and follow the instructions.
 - Copy the Mysql script "myData.sql".
 - Paste in the Mysql Command Line.
 - Close the Client.
+- In the Config folder of your program create a settings file following the model in the settingExample file.
 ```
 **Set up your food Database**
 ```
