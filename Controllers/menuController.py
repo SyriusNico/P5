@@ -1,8 +1,6 @@
 # coding : utf-8
 import Views.menuView as m
-# import sys
-# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-# sys.path.append('Pur_Beurre')
+
 
 class MenuController():
 

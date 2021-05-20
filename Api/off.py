@@ -1,10 +1,8 @@
 # coding: utf-8
 import requests
 import Config.config as cf
-# import Database.database as dt
-# import sys
-# sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-sys.path.append('Pur_Beurre')
+import Database.database as dt
+
 
 class Off():
 	"""

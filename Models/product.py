@@ -1,8 +1,6 @@
 # coding : utf-8
 import Database.database as c
-# import sys
-# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-# sys.path.append('Pur_Beurre')
+
 
 class Product(c.Database):
 

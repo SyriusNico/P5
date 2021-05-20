@@ -1,9 +1,7 @@
 # coding : utf-8
 import Database.database as c
 import Models.product as p
-# import sys
-# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-# sys.path.append('Pur_Beurre')
+
 
 class Substitute(c.Database):
 

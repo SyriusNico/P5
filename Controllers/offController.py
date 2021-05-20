@@ -3,9 +3,6 @@ import Config.config as cf
 import Api.off as off
 import Models.category as c
 import Models.product as p
-# import sys
-# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-# sys.path.append('Pur_Beurre')
 
 class OffController:
 

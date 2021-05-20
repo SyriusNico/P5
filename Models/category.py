@@ -1,8 +1,5 @@
 # coding : utf-8
 import Database.database as d
-# import sys
-# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-# sys.path.append('Pur_Beurre')
 
 class Category(d.Database):
 

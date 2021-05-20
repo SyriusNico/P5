@@ -1,8 +1,5 @@
 # coding : utf-8
 import Models.substitute as s
-# import sys
-# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-# sys.path.append('Pur_Beurre')
 
 class SubstituteController():
 

@@ -5,9 +5,7 @@ import Controllers.substituteController as sc
 import Views.categoryView as cat
 import Views.productView as p
 import Views.substituteView as s
-# import sys
-# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-# sys.path.append('Pur_Beurre')
+
 
 class Controller():
 
