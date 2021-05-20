@@ -1,9 +1,9 @@
 # coding : utf-8
 import Database.database as c
 import Models.product as p
-import sys
-sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-
+# import sys
+# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
+# sys.path.append('Pur_Beurre')
 
 class Substitute(c.Database):
 
@@ -15,7 +15,9 @@ class Substitute(c.Database):
 		self.substitute = substitute
 
 	def save(self, product, substitute):
-
+		"""
+		method which allows you to save a substitute
+		"""
 		try:
 			req = ("INSERT INTO substitutes (product_id, substitute_id) \
 			VALUES (%s,%s)")
@@ -31,7 +33,9 @@ class Substitute(c.Database):
 			self.cnx.commit()
 
 	def readAll(self):
-
+		"""
+		method wich allows you to read substitute liste
+		"""
 		req = "SELECT * FROM substitutes"
 		self.cursor.execute(req)
 		datas = self.cursor.fetchall()
@@ -46,7 +50,9 @@ class Substitute(c.Database):
 		return substitutes
 
 	def deleteAll(self):
-
+		"""
+		delete the substitute list 
+		"""
 		req = ("DELETE FROM substitutes")
 		self.cursor.execute(req)
 		self.cnx.commit()

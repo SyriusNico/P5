@@ -1,8 +1,8 @@
 # coding : utf-8
 import Database.database as d
-import sys
-sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-
+# import sys
+# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
+# sys.path.append('Pur_Beurre')
 
 class Category(d.Database):
 
@@ -33,18 +33,24 @@ class Category(d.Database):
 			)
 
 	def _can_be_created(self):
+		"""
+		check if you can register 
+		this data in your database
+		"""
 		if self.name is None:
 			return False
 		return True
 
 	def read(self):
+		"""
+		read all data from categories table
+		and return categories list
+		"""
 		req = "SELECT * FROM categories"
 		self.cursor.execute(req)
 		self.cnx.commit()
-		# fetchall a faire dans le model
 		datas = self.cursor.fetchall()
 		categories = []
-		# ici créer un objet et le renvoyer
 		for data in datas:
 			cat = Category()
 			cat.set_id_category(data[0])

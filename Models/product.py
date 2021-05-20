@@ -1,8 +1,8 @@
 # coding : utf-8
 import Database.database as c
-import sys
-sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-
+# import sys
+# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
+# sys.path.append('Pur_Beurre')
 
 class Product(c.Database):
 
@@ -59,7 +59,10 @@ class Product(c.Database):
 			)
 
 	def _can_be_created(self):
-
+		"""
+		check if you can register
+		this data in your datatabase
+		"""
 		if self.product_name is None:
 			return False
 		elif self.code is None:
@@ -73,7 +76,9 @@ class Product(c.Database):
 		return True
 
 	def read(self, choice=int):
-
+		"""
+		select all products when you enter an id
+		"""
 		req = "SELECT * FROM products WHERE category_id = '{}'".format(choice)
 		self.cursor.execute(req)
 		datas = self.cursor.fetchall()
@@ -91,6 +96,10 @@ class Product(c.Database):
 		return products
 
 	def readOne(self, prod_id, cat_id):
+		""" 
+		select a product when you
+		enter its id and its category
+		"""
 		req = "SELECT * FROM products WHERE id = '{}' \
 		AND category_id = '{}'".format(prod_id, cat_id)
 		self.cursor.execute(req)
@@ -106,6 +115,9 @@ class Product(c.Database):
 		return oneProd
 
 	def readProd(self, prod_id):
+		""" 
+		select a product when you enter its id
+		"""
 		req = "SELECT * FROM products WHERE id = '{}'".format(prod_id)
 		self.cursor.execute(req)
 		data = self.cursor.fetchone()

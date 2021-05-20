@@ -5,9 +5,9 @@ import Controllers.substituteController as sc
 import Views.categoryView as cat
 import Views.productView as p
 import Views.substituteView as s
-import sys
-sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-
+# import sys
+# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
+# sys.path.append('Pur_Beurre')
 
 class Controller():
 
@@ -22,7 +22,9 @@ class Controller():
 		self.launch()
 
 	def launch(self):
-
+		"""
+		method used to process the user's request
+		"""
 		menu = c.MenuController()
 		itsGood = False
 		while itsGood == False:

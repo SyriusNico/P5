@@ -1,9 +1,9 @@
 # coding : utf-8
 import Models.category as c
 import Views.categoryView as v
-import sys
-sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-
+# import sys
+# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
+# sys.path.append('Pur_Beurre')
 
 class CategoryController:
 	"""register categories for database"""

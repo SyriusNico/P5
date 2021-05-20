@@ -1,8 +1,8 @@
 # coding : utf-8
 import Models.substitute as s
-import sys
-sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-
+# import sys
+# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
+# sys.path.append('Pur_Beurre')
 
 class SubstituteController():
 
@@ -10,7 +10,10 @@ class SubstituteController():
 		self.substitute = s.Substitute()
 
 	def compare(self, productToCompare, product_list):
-
+		"""
+		compare the selected product 
+		with the other products in the list
+		"""
 		if productToCompare.nutrition_grade == 'a':
 			pass
 		else:
@@ -22,11 +25,20 @@ class SubstituteController():
 						return product
 
 	def store(self, product, substitute):
+		"""
+		used to register the substitute product
+		"""
 		self.substitute.save(product, substitute)
 
 	def deleteAll(self):
+		"""
+		delete all the substitute list
+		"""
 		self.substitute.deleteAll()
 
 	def myList(self):
+		"""
+		substitute list
+		"""
 		myList = self.substitute.readAll()
 		return myList

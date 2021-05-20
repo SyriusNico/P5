@@ -1,10 +1,10 @@
 # coding: utf-8
 import requests
 import Config.config as cf
-import Database.database as dt
-import sys
-sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-
+# import Database.database as dt
+# import sys
+# sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
+sys.path.append('Pur_Beurre')
 
 class Off():
 	"""
@@ -28,7 +28,9 @@ class Off():
 		}
 
 	def get_products(self, category):
-
+		"""
+		send a request to the API to retrieve the products
+		"""
 		payload = self.__get_payload(category)
 		req = requests.get(self.url, payload)
 		products = req.json().get('products')

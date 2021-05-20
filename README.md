@@ -84,8 +84,10 @@ In the project folder run the file main.py and follow the instructions.
 - Use the class method "init_datas" example :
 	ObjectName.init_datas()
 - Run on your terminal : offController.py
+	=> python offController.py
 ```
 ## PROGRAM LAUNCH
 ```
 - On your terminal run main.py file.
+	=> python main.py
 ```

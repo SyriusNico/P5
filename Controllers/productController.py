@@ -1,9 +1,9 @@
 # coding : utf-8
 import Models.product as p
 import Views.productView as v
-import sys
-sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
-
+# import sys
+# # sys.path.append('C:\\Users\\Utilisateur\\Documents\\ExerciceOC\\Pur_Beurre')
+# sys.path.append('Pur_Beurre')
 
 class ProductController:
 
@@ -14,15 +14,24 @@ class ProductController:
 		self.prodNumber = None
 
 	def choose_cat(self):
+		"""
+		allows you to choose a category
+		"""
 		self.catNumber = int(input("\nChoisissez une categorie : "))
 		print("Veuillez patienter ...")
 		return self.catNumber
 
 	def send_products(self):
+		"""
+		used to retrieve products
+		"""
 		products = self.prod.read(self.catNumber)
 		return products
 
 	def send_product(self):
+		"""
+		used to retrieve one product
+		"""
 		product_list = self.send_products()
 		self.prodView.show_products(product_list)
 		correct = False
