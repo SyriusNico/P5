@@ -7,6 +7,7 @@ class MenuController():
 	def __init__(self):
 		self.choice = None
 		self.response = None
+		self.details = None
 
 	def menuScreen(self):
 		"""
@@ -40,6 +41,15 @@ class MenuController():
 		"""
 		self.choice = int(input("\nChoisissez une option : \n\n\n"))
 		return self.choice
+
+	def detail(self):
+		"""
+		method used to register
+		the user's request
+		"""
+		self.details = int(input("\nVoulez vous plus de "
+			"renseignement pour un produit ?\n1.oui\n2.non\n\n\n"))
+		return self.details
 
 	def register(self):
 		"""

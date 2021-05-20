@@ -17,6 +17,10 @@ class SubstituteView():
 			print("###############################################")
 		except AttributeError:
 			print("Il n'y a pas de substitut possible")
+	def show_list(self,mylist):
+		print("\n\n ***Mes produits substitués***\n\n")
+		for product in mylist:
+			print(product.substitute.id, product.substitute.product_name)
 
 	def details(self, myList):
 		for product in myList:

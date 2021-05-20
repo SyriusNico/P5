@@ -47,6 +47,43 @@ class Substitute(c.Database):
 			substitutes.append(new_substitute)
 		return substitutes
 
+	def readInDetail(self, substitute_id):
+		req = (
+			"SELECT * FROM substitutes \
+			WHERE substitute_id = '{}'".format(substitute_id)
+		)
+		self.cursor.execute(req)
+		datas = self.cursor.fetchall()
+		detail_list = []
+		for data in datas:
+			product = p.Product()
+			product = product.readProd(data[0])
+			product_2 = p.Product()
+			product_2 = product_2.readProd(data[1])
+			new_substitute = Substitute(product, product_2)
+			detail_list.append(new_substitute)
+		return detail_list
+
+	def deleteOne(self, substitute_id):
+		"""
+		deletes an initial product and its substitute
+		"""
+		req = (
+			"DELETE FROM substitutes \
+			WHERE substitute_id = '{}'".format(substitute_id)
+		)
+		self.cursor.execute(req)
+		self.cnx.commit()
+
+	def _can_be_deleted(self, sub, mylist):
+		"""
+		check if you can
+		delete its substitute
+		"""
+		for substitute in mylist:
+			if  substitute.substitute.id == sub or substitute.product.id == sub:
+				return True
+		return False
 	def deleteAll(self):
 		"""
 		delete the substitute list 

@@ -24,9 +24,11 @@ class MenuView:
 		print("|                                                    |")
 		print("|  1. Afficher mes produits substitués               |")
 		print("|                                                    |")
-		print("|  2. Effacer tous les éléments (Choix irréversible) |")
+		print("|  2. Effacer un substitut      (Choix irréversible) |")
 		print("|                                                    |")
-		print("|  3. Retour                                         |")
+		print("|  3. Effacer tous les éléments (Choix irréversible) |")
+		print("|                                                    |")
+		print("|  4. Retour                                         |")
 		print("|____________________________________________________|")
 
 	def bye(self):

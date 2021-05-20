@@ -21,7 +21,9 @@ class Controller():
 
 	def launch(self):
 		"""
-		method used to process the user's request
+		method used to process the user's 
+		request as long as the user does 
+		not enter a correct option the menu is displayed
 		"""
 		menu = c.MenuController()
 		itsGood = False
@@ -29,6 +31,7 @@ class Controller():
 			try:
 				menu.menuScreen()
 				menu.makeChoice()
+				# Find a product
 				if menu.choice == 1:
 					itsGood = True
 					self.category_demand.store_categories()
@@ -40,7 +43,10 @@ class Controller():
 						product = self.product_demand.send_product()
 						self.products.describe_product(product)
 						substitute = self.substitute_demand.compare(product, product_list)
-						self.subView.show_subs(substitute)
+						if product == substitute:
+							print("Ce produit est le meilleur")
+						else:
+							self.subView.show_subs(substitute)
 						menu.register()
 
 					# User choose yes
@@ -53,32 +59,58 @@ class Controller():
 					else:
 						print("Ce choix ne correspond à aucune option")
 						itsGood = False
-
+				# substitute menu
 				elif menu.choice == 2:
 					correct = False
 					itsGood = True
 					while correct == False:
 						menu.substituteScreen()
 						menu.makeChoice()
+						# view my substitute list
 						if menu.choice == 1:
 							correct = True
 							subs_list = self.substitute_demand.myList()
 							if subs_list != []:
-								self.subView.details(subs_list)
+								self.subView.show_list(subs_list)
+								menu.detail()
+								if menu.details == 1:
+									sub_number = int(input("Choisissez un produit :"))
+									sub = self.substitute_demand.describe(sub_number)
+									self.subView.details(sub)
+									correct = False
+								if menu.details == 2:
+									itsGood = False
+								else:
+									correct = False
 							else:
 								print("\n\nLa liste est vide.\n\n")
 								correct = True
+						# delete one product from the list
 						if menu.choice == 2:
+							subs_list = self.substitute_demand.myList()
+							if subs_list != []:
+								self.subView.show_list(subs_list)
+								print("\n\nSelectionner le produit " 
+								"à supprimer\n")
+								subProd = int(input("\n\nEntrer le numéro"
+									" du produit de substitution : "))
+								self.substitute_demand.deleteOne(subProd, subs_list)
+							else:
+								print("\n\nLa liste est vide.\n\n")
+								correct = True
+						# delete all the list
+						if menu.choice == 3:
 							self.substitute_demand.deleteAll()
 							print("\n\nLa liste à été vidé.\n\n")
 							correct = True
-						if menu.choice == 3:
+						# return to the main menu
+						if menu.choice == 4:
 							correct = True
 							itsGood = False
 						else:
 							print("\n\nRetour au menu substituts.\n\n")
 							correct = False
-
+				# exit the program
 				elif menu.choice == 3:
 					menu.menuBye()
 					itsGood = True

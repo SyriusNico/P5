@@ -59,7 +59,7 @@ class Product(c.Database):
 	def _can_be_created(self):
 		"""
 		check if you can register
-		this data in your datatabase
+		its data in your datatabase
 		"""
 		if self.product_name is None:
 			return False
